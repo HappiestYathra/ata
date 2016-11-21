@@ -64,7 +64,7 @@ Street VARCHAR2(30) Not Null,
 City VARCHAR2(15) Not Null ,
 State VARCHAR2(15) Not Null,
  Pincode VARCHAR2(6) Not Null ,
-MobileNo VARCHAR(10) ,--Exact 10 digit only 
+MobileNo VARCHAR(10) check(length(MobileNo)=10),--Exact 10 digit only 
 EmailId VARCHAR2(30)  --* 
 );
 
