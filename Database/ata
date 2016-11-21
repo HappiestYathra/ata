@@ -77,7 +77,7 @@ Loginstatus NUMBER(1) -- Either [1 ,0]
 );
 
 
---sequences
+--sequences for 
 CREATE SEQUENCE ata_seq_userId 
   MINVALUE 1000
 MAXVALUE 9999
