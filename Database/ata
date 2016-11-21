@@ -1,4 +1,4 @@
---This is database file
+--This is database filell
 create table  ATA_TBL_CreditCard (
 CreditCardNumber  VARCHAR(16) Primary Key,
  ValidFrom  VARCHAR(7)  Not Null ,
