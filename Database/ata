@@ -32,13 +32,13 @@ TravelDuration NUMBER(3) Not Null
 
 create table  ATA_TBL_Driver (
 driverId VARCHAR2(6) Primary Key,
- Name VARCHAR2(25) Not Null, --Either[A|B]** 
+ Name VARCHAR2(25) Not Null check(Name in('A','B')), --Either[A|B]** 
 Street VARCHAR2(30) Not Null ,
 Location VARCHAR2(15) Not Null ,
 City VARCHAR2(15) Not Null ,
 State VARCHAR2(15) Not Null ,
 Pincode VARCHAR2(6) Not Null,
- MobileNo VARCHAR(10) ,--Exact 10 digit only
+ MobileNo VARCHAR(10) check(length(MobileNo)=10),--Exact 10 digit only
  LicenseNumber VARCHAR2(20) Unique 
 
 );
@@ -72,8 +72,8 @@ EmailId VARCHAR2(30)  --*
 craete table ATA_TBL_User_Credentials (
 Userid VARCHAR2(6) Primary Key,
  Password VARCHAR2(20) Not Null,
-Usertype VARCHAR2(1), --Either ['A','C'] 
-Loginstatus NUMBER(1) -- Either [1 ,0] 
+Usertype VARCHAR2(1) check(Usertype in('A','C')), --Either ['A','C'] 
+Loginstatus NUMBER(2) check(Loginstatus in(1,0))-- Either [1 ,0] 
 );
 
 
