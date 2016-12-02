@@ -84,6 +84,15 @@ MAXVALUE 9999
   START WITH 1000
   INCREMENT BY 1
   CACHE 20;
+  
+CREATE or replace TRIGGER user_insert
+BEFORE INSERT ON user
+FOR EACH ROW
+BEGIN
+  select concat(substr(:new.name,1,2),ata_seq_userId.nextval)
+   into :new.userID from dual;
+END;
+
 
 CREATE SEQUENCE ata_seq_routeId  
   MINVALUE 1000
@@ -92,12 +101,29 @@ MAXVALUE 9999
   INCREMENT BY 1
   CACHE 20;
 
+CREATE or replace TRIGGER route_insert
+BEFORE INSERT ON route
+FOR EACH ROW
+BEGIN
+  select concat(substr(:new.name,1,2),ata_seq_routeId.nextval)
+   into :new.routeID from dual;
+END;
+
 CREATE SEQUENCE ata_seq_driverId  
   MINVALUE 1000
 MAXVALUE 9999
   START WITH 1000
   INCREMENT BY 1
   CACHE 20;
+
+CREATE or replace TRIGGER driver_insert
+BEFORE INSERT ON Driver
+FOR EACH ROW
+BEGIN
+  select concat(substr(:new.name,1,2),ata_seq_driverId.nextval)
+   into :new.driverID from dual;
+END;
+
 
 CREATE SEQUENCE ata_seq_vehicleId 
   MINVALUE 1000
@@ -106,9 +132,33 @@ MAXVALUE 9999
   INCREMENT BY 1
   CACHE 20;
 
+CREATE or replace TRIGGER vehicle_insert
+BEFORE INSERT ON Driver
+FOR EACH ROW
+BEGIN
+  select concat(substr(:new.name,1,2),ata_seq_vehicleId.nextval)
+   into :new.vehicleID from dual;
+END;
+
 CREATE SEQUENCE ata_seq_reservationId  
   MINVALUE 1000
 MAXVALUE 9999
   START WITH 1000
   INCREMENT BY 1
   CACHE 20;
+
+CREATE or replace TRIGGER reservation_insert
+BEFORE INSERT ON reservation
+FOR EACH ROW
+BEGIN
+  select concat(substr(:new.name,1,2),ata_seq_reservationId.nextval)
+   into :new.reservationID from dual;
+END;
+
+CREATE or replace TRIGGER driver_insert
+BEFORE INSERT ON Driver
+FOR EACH ROW
+BEGIN
+  select concat(substr(:new.name,1,2),ata_seq_vehicleId.nextval)
+   into :new.driverID from dual;
+END;
